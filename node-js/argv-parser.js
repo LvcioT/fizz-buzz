@@ -1,6 +1,7 @@
 const defaultParameters = {
     nFrom: 1,
-    nTo: 100
+    nTo: 100,
+    print: 'series'
 }
 
 export const parser = () => {
@@ -13,10 +14,16 @@ export const parser = () => {
     })
 
     argv.forEach(item => {
-        if(results?.[item.param]) {
-            results[item.param] = parseInt(item.value)
+        if (results?.[item.param]) {
+            results[item.param] = item.value
         }
     })
 
-    return results
+    // sanitize
+
+    return {
+        nFrom: parseInt(results.nFrom),
+        nTo: parseInt(results.nTo),
+        print: ['series', 'end'].includes(results.print) ? results.print : 'series'
+    }
 }
