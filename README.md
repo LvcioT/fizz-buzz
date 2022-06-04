@@ -12,6 +12,8 @@ The aim is to explore each language on these aspects:
 * execution speed
 * test suite
 
+Thus, the actual implementation could be overthinked and not optimal.
+
 ### Implementation
 
 Each langauge lives in its own folder, has its own Docker infrastructure (Alpine if possible).
@@ -19,8 +21,10 @@ Each langauge lives in its own folder, has its own Docker infrastructure (Alpine
 Every Langauage should have:
 
 * optional command line paramters:
-    * `--upto=number`: runs the fizz-buzz alghoritm up to this number, `100` if not provided
-    * `--no-print`: avoid on screen print of the whole series, but the whole series has to be generated
+    * `--n-from`: runs the fizz-buzz alghoritm startingo from this number, `1` if not provided
+    * `--n-to`: runs the fizz-buzz alghoritm up to this number, `100` if not providedwhole series has to be generated
+    * `--print-last`: prints just the last number and not the whole series
+* save the series in a data structure and print all when finished
 * a small set of tests
 
 ### Future Enhancement
