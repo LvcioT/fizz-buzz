@@ -26,4 +26,4 @@ Use these chapter titles:
 ### Added
 
 * NodeJs subproject
-* PRoject Init
+* Project Init
