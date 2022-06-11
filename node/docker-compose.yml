@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  computational:
+    container_name: fizz-buzz-node
+    image: node:18
+    tty: true
+    volumes:
+      - .:/app
+    working_dir: /app

@@ -1,0 +1,28 @@
+{
+  "name": "fizz-buzz",
+  "version": "1.0.0",
+  "description": "Fizz Buzz Kata",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LvcioT/fizz-buzz.git"
+  },
+  "keywords": [
+    "educational",
+    "kata",
+    "fizzbuzz"
+  ],
+  "author": "LvcioT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LvcioT/fizz-buzz/issues"
+  },
+  "homepage": "https://github.com/LvcioT/fizz-buzz#readme",
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
