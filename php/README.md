@@ -9,7 +9,7 @@ composer install
 Run
 
 ```shell
-php app.php
+php index.php
 ```
 
 Test
