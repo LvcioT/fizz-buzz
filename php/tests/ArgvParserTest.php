@@ -15,6 +15,8 @@ class ArgvParserTest extends TestCase
 
     public function testDefault()
     {
+        global $argv;
+    
         // no values (fist one is always script name) 
         $argv = ['dummy1'];
         $this->assertEquals($this->defaultValues, ArgvParser::parse());
@@ -26,6 +28,8 @@ class ArgvParserTest extends TestCase
 
     public function testArgs()
     {
+        global $argv;
+
         $argv = ['dummy1', 'nFrom=-5'];
         $this->assertEquals(['nFrom' => -5] + $this->defaultValues, ArgvParser::parse());
 
@@ -35,6 +39,8 @@ class ArgvParserTest extends TestCase
 
     public function testArgsValue()
     {
+        global $argv;
+     
         // actual arguments with useless value
         $argv = ['dummy1', 'print=everything'];
         $this->assertEquals($this->defaultValues, ArgvParser::parse());

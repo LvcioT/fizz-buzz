@@ -16,5 +16,7 @@ $values = FizzBuzz::series($nFrom, $nTo);
 if ($print == 'series') {
     FizzBuzz::printSeries($values);
 } else {
-    print([$nto, FizzBuzz::step($nTo)]);
+    print($nTo . ' ' .  FizzBuzz::step($nTo) . PHP_EOL);
 }
+
+// print("{$nFrom} {$nTo} {$print}" . PHP_EOL);

@@ -20,16 +20,19 @@ class ArgvParser
     static function parse(): array
     {
         global $argv;
+
+        // print(json_encode($argv));
+
         $results = static::$defaultParameters;
 
         $arguments = array_map(function ($item) {
-            [$param, $value] = explode('=', $item);
+            $parts = explode('=', $item);
 
             return [
-                'param' => $param,
-                'value' => $value
+                'param' => $parts[0],
+                'value' => $parts[1] ?? null
             ];
-        }, array_slice($argv, 2));
+        }, array_slice($argv, 1));
 
         foreach ($arguments as $argument) {
             if (isset($results[$argument['param']])) {
