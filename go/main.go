@@ -1,10 +1,11 @@
 package main
 
 import (
+	"fizz-buzz/shared"
 	"fmt"
 )
 
 func main() {
 
-	fmt.Println(parser())
+	fmt.Println(shared.Parser())
 }

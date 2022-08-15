@@ -1,7 +1,6 @@
-package main
+package shared
 
 import (
-	"fizz-buzz/shared"
 	"os"
 	"strconv"
 	"strings"
@@ -12,19 +11,19 @@ type PrintValue string
 var printValues = []string{"series", "end"}
 
 type ArgsType struct {
-	nFrom int
-	nTo   int
-	print string
+	N_From int
+	N_To   int
+	Print  string
 }
 
 // default parameters, kept global as helper, just in case
 var defaultParameters = ArgsType{
-	nFrom: 1,
-	nTo:   100,
-	print: printValues[0],
+	N_From: 1,
+	N_To:   100,
+	Print:  printValues[0],
 }
 
-func parser() ArgsType {
+func Parser() ArgsType {
 	// maps parameters split by '='
 	params := make(map[string][]string)
 
@@ -43,7 +42,7 @@ func parser() ArgsType {
 	if ok && len(value) == 1 {
 		arg, err := strconv.Atoi(value[0])
 		if err != nil {
-			results.nFrom = arg
+			results.N_From = arg
 		}
 	}
 
@@ -51,7 +50,7 @@ func parser() ArgsType {
 	if ok && len(value) == 1 {
 		arg, err := strconv.Atoi(value[0])
 		if err != nil {
-			results.nTo = arg
+			results.N_To = arg
 		}
 	}
 
@@ -59,9 +58,9 @@ func parser() ArgsType {
 	if ok && len(value) == 1 {
 		arg := value[0]
 
-		if shared.Array_in(printValues, arg) {
+		if Array_in(printValues, arg) {
 
-			results.print = arg
+			results.Print = arg
 		}
 	}
 
