@@ -41,7 +41,7 @@ func Parser() ArgsType {
 	value, ok = params["nFrom"]
 	if ok && len(value) == 1 {
 		arg, err := strconv.Atoi(value[0])
-		if err != nil {
+		if err == nil {
 			results.N_From = arg
 		}
 	}
@@ -49,7 +49,7 @@ func Parser() ArgsType {
 	value, ok = params["nTo"]
 	if ok && len(value) == 1 {
 		arg, err := strconv.Atoi(value[0])
-		if err != nil {
+		if err == nil {
 			results.N_To = arg
 		}
 	}

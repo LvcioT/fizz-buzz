@@ -1,64 +1,54 @@
-package shared
+package shared_test
 
 import (
+	"fizz-buzz/shared"
 	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
-var defaultResult = ArgsType{
+var defaultResult = shared.ArgsType{
 	N_From: 1,
 	N_To:   100,
 	Print:  "series",
 }
 
 func TestNoArgumnets(t *testing.T) {
-	assert.Equal(t, defaultResult, Parser())
+	os.Args = []string{"filename"}
+
+	assert.Equal(t, defaultResult, shared.Parser())
 }
 
 func TestExtraArguments(t *testing.T) {
-	os.Args = append(os.Args, "argument=value")
+	os.Args = []string{"filename", "argument=value"}
 
-	assert.Equal(t, defaultResult, Parser())
+	assert.Equal(t, defaultResult, shared.Parser())
 }
 
 func TestExpectedIntAruments(t *testing.T) {
-	os.Args = append(os.Args, "nFrom=-5")
-	os.Args = append(os.Args, "nTo=5")
+	os.Args = []string{"filename", "nFrom=-5", "nTo=5"}
 
 	expected := defaultResult
 
 	expected.N_From = -5
 	expected.N_To = 5
 
-	assert.Equal(t, expected, Parser())
+	assert.Equal(t, expected, shared.Parser())
 }
 
-/*
+func TestDefaultPrintArument(t *testing.T) {
+	os.Args = []string{"filename", "print=everyelse"}
 
-test('print extra option argument gives default', ()=> {
-    process.argv = ['dummy1', 'dummy2', 'print=everything']
+	assert.Equal(t, defaultResult, shared.Parser())
+}
 
-    const argv = parser()
+func TestExpectedPrintArument(t *testing.T) {
+	os.Args = []string{"filename", "print=end"}
 
-    expect(argv).toStrictEqual({
-        nFrom: -5,
-        nTo: 100,
-        print: 'series'
-    })
-})
+	expected := defaultResult
 
-test('print end argument gives effect', ()=> {
-    process.argv = ['dummy1', 'dummy2', 'ptint=end']
+	expected.Print = "end"
 
-    const argv = parser()
-
-    expect(argv).toStrictEqual({
-        nFrom: -5,
-        nTo: 100,
-        print: 'series'
-    })
-})
-
-*/
+	assert.Equal(t, expected, shared.Parser())
+}
