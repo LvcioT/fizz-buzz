@@ -12,6 +12,12 @@ func Array_map[i_item any, r_item any](data []i_item, f func(i_item) r_item) []r
 	return mapped
 }
 
+func Array_each[item any](data []item, f func(int, item)) {
+	for i, item := range data {
+		f(i, item)
+	}
+}
+
 func Array_filter[i_item any](data []i_item, f func(i_item) bool) []i_item {
 	filtered := make([]i_item, 0)
 

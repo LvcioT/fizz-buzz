@@ -8,7 +8,7 @@ import (
 
 type PrintValue string
 
-var printValues = []string{"series", "end"}
+var PrintValues = []string{"series", "end"}
 
 type ArgsType struct {
 	N_From int
@@ -20,7 +20,7 @@ type ArgsType struct {
 var defaultParameters = ArgsType{
 	N_From: 1,
 	N_To:   100,
-	Print:  printValues[0],
+	Print:  PrintValues[0],
 }
 
 func Parser() ArgsType {
@@ -58,7 +58,7 @@ func Parser() ArgsType {
 	if ok && len(value) == 1 {
 		arg := value[0]
 
-		if Array_in(printValues, arg) {
+		if Array_in(PrintValues, arg) {
 
 			results.Print = arg
 		}
