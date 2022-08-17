@@ -1,6 +1,7 @@
-package shared
+package argv_parser
 
 import (
+	"fizz-buzz/shared/array"
 	"os"
 	"strconv"
 	"strings"
@@ -58,7 +59,7 @@ func Parser() ArgsType {
 	if ok && len(value) == 1 {
 		arg := value[0]
 
-		if Array_in(PrintValues, arg) {
+		if array.In(PrintValues, arg) {
 
 			results.Print = arg
 		}

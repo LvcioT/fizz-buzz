@@ -1,7 +1,7 @@
 package core
 
 import (
-	"fizz-buzz/shared"
+	"fizz-buzz/shared/array"
 	"fmt"
 	"strconv"
 )
@@ -47,8 +47,8 @@ func Step(num int) string {
 	return strconv.Itoa(num)
 }
 
-func Echo(values []StepType) {
-	shared.Array_each(values, func(i int, item StepType) {
+func Print(values []StepType) {
+	array.Each(values, func(i int, item StepType) {
 		fmt.Println(item)
 	})
 }
